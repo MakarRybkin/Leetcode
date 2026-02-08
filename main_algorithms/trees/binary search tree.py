@@ -160,22 +160,21 @@ def isBST(root):
     return isBstUtil(root, float('-inf'), float('inf'))
 
 
-if __name__ == "__main__":
 
-    # Create a sample binary tree
-    #     10
-    #    /  \
-    #   5    20
-    #        / \
-    #       9   25
+# Create a sample binary tree
+#     10
+#    /  \
+#   5    20
+#        / \
+#       9   25
 
-    root = Node(10)
-    root.left = Node(5)
-    root.right = Node(20)
-    root.right.left = Node(9)
-    root.right.right = Node(25)
+root = Node(10)
+root.left = Node(5)
+root.right = Node(20)
+root.right.left = Node(9)
+root.right.right = Node(25)
 
-    if isBST(root):
-        print("true")
-    else:
-        print("false")
+if isBST(root):
+    print("true")
+else:
+    print("false")
