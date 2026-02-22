@@ -1,10 +1,3 @@
-from typing import Optional
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         next_rang=0
@@ -31,6 +24,3 @@ class Solution:
         if next_rang!=0:
             pointer.next=ListNode(next_rang)
         return result
-print(Solution().addTwoNumbers(l1=ListNode(2,next=ListNode(4,next=ListNode(3))), l2=ListNode(5,next=ListNode(6,next=ListNode(4)))))
-
-

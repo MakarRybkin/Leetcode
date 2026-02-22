@@ -2,24 +2,16 @@ from typing import List
 
 
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
-        """
-        Do not return anything, modify nums1 in-place instead.
-        """
-        arr1=nums1[:m]
-        arr2=nums2[:n]
-        p1,p2=0,0
-        while p1<len(arr1) and p2<len(arr2):
-            if arr1[p1]<=arr2[p2]:
-                nums1[p1+p2]=arr1[p1]
-                p1+=1
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int):
+        i,j = m-1,n-1
+        while (i >= 0) and (j >= 0):
+            if nums1[i] > nums2[j]:
+                nums1[i+j+1] = nums1[i]
+                i-=1
             else:
-                nums1[p1+p2]=arr2[p2]
-                p2+=1
-        while nums1 and nums2 and len(nums1)> p1+p2:
-            nums1.pop()
-        if len(nums1)< len(nums2)+len(nums1):
-            nums1.extend(arr2[p2:len(arr2)])
-            nums1.extend(arr1[p1:len(arr1)])
+                nums1[i+j+1] = nums2[j]
+                j-=1
+        if j >= 0:
+            nums1[0:j+1] = nums2[0:j+1]
         return nums1
-print(Solution().merge([1,2,4,5,6,0],5,[3],1))
+print(Solution().merge([1,2,3,4,0],4,[4],1))
